@@ -2,15 +2,17 @@ curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/l
 chmod u+x /usr/local/bin/wings
 echo "Wings Update Complete, restarting Wings\n"
 sleep 0.4
-echo "Wings Update Complete, restarting Wings\n."
-echo "Wings Update Complete, restarting Wings\n.."
-sleep 0.1
-echo "Wings Update Complete, restarting Wings\n..."
-sleep 0.1
-echo "Wings Update Complete, restarting Wings\n...."
-sleep 0.1
-systemctl restart wings
-sleep 0.5
+systemctl restart wings 
+sleep 0.4
 echo "Wings Restarted, Quitting script"
+
+
+
+
+
+
+
+
+
 
 
