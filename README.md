@@ -10,6 +10,9 @@ Contact me on discord @ The Yeetster#4461
 
 HOW TO USE:
 ``1.Download the files using git``
+
 ``2.Use "chmod +x auto-update.sh/panel-auto-update.sh" to give it permission to run``
+
 ``3.Run either script with ./auto-update.sh or ./panel-auto-update.sh``
+
 ``4.Profit``
