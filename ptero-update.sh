@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]
 then echo "Please run as root, Quitting script"
 exit
 fi
-read -p "Press 0 for Wings Update, Press 1 for Panel Update or press 2 to update Both" CHECK 
+read -p $'Press 0 for Wings Update, Press 1 for Panel Update or press 2 to update Both\n' CHECK 
 
 if [ "$CHECK" = 0 ];
 then
