@@ -12,8 +12,8 @@ HOW TO USE:
 
 ``1.Download the files using git``
 
-``2.Use "chmod +x auto-update.sh/panel-auto-update.sh" to give it permission to run``
+``2.Use "chmod +x panel-update.sh" to give it permission to run``
 
-``3.Run either script with ./auto-update.sh or ./panel-auto-update.sh``
+``3.Run script with ./ptero-update.sh``
 
 ``4.Profit``
