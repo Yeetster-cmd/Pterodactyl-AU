@@ -15,6 +15,7 @@ if [ $CHECK > 2 ];then
 		systemctl restart wings 
 		sleep 0.4
 		echo "Wings Restarted"
+		echo "Quitting Script"
 	fi
 
 	if [ "$CHECK" = 1 ];
@@ -29,6 +30,7 @@ if [ $CHECK > 2 ];then
 		php artisan up
 		sleep 5.0
 		echo "Panel Update Completed"
+		echo "Quitting Script"
 	fi
 
 	if [ "$CHECK" = 2 ];
@@ -51,10 +53,8 @@ if [ $CHECK > 2 ];then
 		sleep 0.4
 		echo "Wings Restarted"
 		sleep 2
+		echo "Updated Pterodactyl, Quitting Script"
 
-	echo "Updated Pterodactyl"
-	sleep 3
-	echo "Quitting script"
 	fi
 fi 
 
