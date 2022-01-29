@@ -12,7 +12,8 @@ HOW TO USE:
 
 ``1.Download the files using git``
 
-``2.Use "chmod +x panel-update.sh" to give it permission to run``
+``2.Use "chmod +x ptero-update.sh" to give it permission to run``
+(If chmod doesn't work try using ``sed -i -e 's/\r$//' ptero-update.sh``)
 
 ``3.Run script with ./ptero-update.sh``
 
