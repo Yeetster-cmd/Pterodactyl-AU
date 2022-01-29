@@ -3,9 +3,13 @@ if [ "$EUID" -ne 0 ]
 then echo "Please run as root, Quitting script"
 exit
 fi
-read -p $'Press 0 for Wings Update, Press 1 for Panel Update or press 2 to update Both\n' CHECK 
-if [ $CHECK > 2 ];then
-        echo $'Please specify the option'
+echo "Press 0 for Wings Update, Press 1 for Panel Update or press 2 to update Both"
+read -p CHECK 
+number=""
+while [[ ! $number =~ ^[0-2]{1} ]]; do
+    echo "Please enter a correct option"
+    read -p CHECK
+done
 	if [ "$CHECK" = 0 ];
 	then
 		curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
