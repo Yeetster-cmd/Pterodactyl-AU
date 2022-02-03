@@ -4,8 +4,7 @@ then echo "Please run as root, Quitting script"
 exit
 fi
 read -p $'Press 0 for Wings Update, Press 1 for Panel Update, press 2 to update Both or press 3 to Install Ptero\n' CHECK 
-if [ $CHECK > 4 ];then
-        echo $'Please specify the option'
+
 	if [ "$CHECK" = 0 ];
 	then
 		curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
@@ -60,7 +59,7 @@ if [ $CHECK > 4 ];then
 	then
 		bash <(curl -s https://pterodactyl-installer.se)
 	fi	
-fi 
+
 
 
 
