@@ -4,7 +4,7 @@ then echo "Please run as root, Quitting script"
 exit
 fi
 read -p $'Press 0 for Wings Update, Press 1 for Panel Update, press 2 to update Both or press 3 to Install Ptero\n' CHECK 
-if [ $CHECK > 2 ];then
+if [ $CHECK > 4 ];then
         echo $'Please specify the option'
 	if [ "$CHECK" = 0 ];
 	then
@@ -56,7 +56,7 @@ if [ $CHECK > 2 ];then
 		echo "Updated Pterodactyl, Quitting Script"
 
 	fi
-	if [ "$CHECK" = 3];
+	if [ "$CHECK" = 3 ];
 	then
 		bash <(curl -s https://pterodactyl-installer.se)
 	fi	
