@@ -3,7 +3,7 @@ if [ "$EUID" -ne 0 ]
 then echo "Please run as root, Quitting script"
 exit
 fi
-read -p $'Press 0 for Wings Update, Press 1 for Panel Update, press 2 to update Both or press 3 to Install Ptero\n' CHECK 
+read -p $'Press 0 for Wings Update, Press 1 for Panel Update or press 2 to update Both\n' CHECK 
 
 	if [ "$CHECK" = 0 ];
 	then
@@ -19,29 +19,14 @@ read -p $'Press 0 for Wings Update, Press 1 for Panel Update, press 2 to update 
 
 	if [ "$CHECK" = 1 ];
 	then
-		cd /var/www/pterodactyl
-		php artisan down
-		curl -L https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz | tar -xzv
-		chmod -R 755 storage/* bootstrap/cache
-		php artisan route:clear && php artisan cache:clear && php artisan view:clear
-		chown -R www-data:www-data /var/www/pterodactyl/*
-		php artisan queue:restart
-		php artisan up
-		sleep 5.0
+		cd /var/www/pterodactyl && php artisan p:upgrade
 		echo "Panel Update Completed"
 		echo "Quitting Script"
 	fi
 
 	if [ "$CHECK" = 2 ];
 	then
-		cd /var/www/pterodactyl
-		php artisan down
-		curl -L https://github.com/pterodactyl/panel/releases/latest/download/panel.tar.gz | tar -xzv
-		chmod -R 755 storage/* bootstrap/cache
-		php artisan route:clear && php artisan cache:clear && php artisan view:clear
-		chown -R www-data:www-data /var/www/pterodactyl/*
-		php artisan queue:restart
-		php artisan up
+		cd /var/www/pterodactyl && php artisan p:upgrade
 		sleep 2
 		echo "Panel Update Completed"
 		curl -L -o /usr/local/bin/wings "https://github.com/pterodactyl/wings/releases/latest/download/wings_linux_$([[ "$(uname -m)" == "x86_64" ]] && echo "amd64" || echo "arm64")"
@@ -55,10 +40,6 @@ read -p $'Press 0 for Wings Update, Press 1 for Panel Update, press 2 to update 
 		echo "Updated Pterodactyl, Quitting Script"
 
 	fi
-	if [ "$CHECK" = 3 ];
-	then
-		bash <(curl -s https://pterodactyl-installer.se)
-	fi	
 
 
 
